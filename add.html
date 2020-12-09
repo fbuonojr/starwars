@@ -28,7 +28,7 @@
                     </div>
                     <div class="card-body">
                         <form method="POST" role="form">
-                            
+
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name">
@@ -37,21 +37,22 @@
                             <div class="form-group">
                                 <label for="role">Role</label>
                                 <input type="text" class="form-control" id="role">
-                              </div>
-                
-                              <div class="form-group">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="age">Age</label>
                                 <input type="text" class="form-control" id="age">
-                              </div>
-                
-                              <div class="form-group">
+                            </div>
+
+                            <div class="form-group">
                                 <label for="force-points">Force Points</label>
                                 <input type="text" class="form-control" id="force-points">
-                              </div>
+                            </div>
                         </form>
                         <br>
                         <div class="text-right">
-                            <button type="submit" class="btn btn-primary btn-md"><span class="fa fa-fire">Add</span></button>
+                            <button type="submit" class="btn btn-primary btn-md"><span
+                                    class="fa fa-fire">Add</span></button>
                         </div>
                     </div>
                 </div>
@@ -68,12 +69,12 @@
                 age: $("#age").val().trim(),
                 forcePoints: $("#force-points").val().trim()
             };
-    
+
             $.post("/api/characters", newCharacter)
-            .then(function(data) {
-                console.log("add.html", data);
-                alert("Adding character...");
-            });
+                .then(function (data) {
+                    console.log("add.html", data);
+                    alert("Adding character...");
+                });
         });
     </script>
 </body>
