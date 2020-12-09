@@ -59,4 +59,23 @@ app.get("api/characters/:character", function(req, res) {
             return res.json(characters[i]);
         }
     }
+
+    return res.json(false);
+});
+
+//create a new character object
+app.post("/api/characters", function(req, res) {
+    var newCharacter = req.body;
+
+    newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
+
+    console.log(newCharacter);
+
+    characters.push(newCharacter);
+
+    res.json(newCharacter);
+});
+
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
 });
