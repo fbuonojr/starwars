@@ -61,7 +61,7 @@
     $("#search-btn").on("click", function () {
         var searchedCharacter = $("#character-search").val().trim();
         console.log("before replaced: " + searchedCharacter);
-        searchedCharacter = searchedCharacter.replace(/\s+/g).toLowerCase();
+        searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
         console.log("after replaced: " + searchedCharacter);
         $.get("/api/characters/" + searchedCharacter, function (data) {
             console.log(data);
