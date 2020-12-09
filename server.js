@@ -49,7 +49,7 @@ app.get("/api/characters", function (req, res){
 });
 
 //displays specific character or returns false
-app.get("api/characters/:character", function(req, res) {
+app.get("/api/characters/:character", function(req, res) {
     var chosen = req.params.character;
 
     console.log(chosen);
