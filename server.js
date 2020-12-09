@@ -35,27 +35,27 @@ var characters = [
 ];
 
 //routes
-app.get("/", function(req, res) {
+app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "view.html"));
 });
 
-app.get("/add", function(req, res) {
+app.get("/add", function (req, res) {
     res.sendFile(path.join(__dirname, "add.html"));
 });
 
 //route to display all characters
-app.get("/api/characters", function (req, res){
+app.get("/api/characters", function (req, res) {
     return res.json(characters);
 });
 
 //displays specific character or returns false
-app.get("/api/characters/:character", function(req, res) {
+app.get("/api/characters/:character", function (req, res) {
     var chosen = req.params.character;
 
     console.log(chosen);
 
-    for(var i = 0; i < characters.length; i++){
-        if(chosen === characters[i].routeName) {
+    for (var i = 0; i < characters.length; i++) {
+        if (chosen === characters[i].routeName) {
             return res.json(characters[i]);
         }
     }
@@ -64,7 +64,7 @@ app.get("/api/characters/:character", function(req, res) {
 });
 
 //create a new character object
-app.post("/api/characters", function(req, res) {
+app.post("/api/characters", function (req, res) {
     var newCharacter = req.body;
 
     newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
@@ -76,6 +76,6 @@ app.post("/api/characters", function(req, res) {
     res.json(newCharacter);
 });
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
 });
