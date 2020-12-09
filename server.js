@@ -33,3 +33,30 @@ var characters = [
         forcePoints: 1350
     }
 ];
+
+//routes
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "view.html"));
+});
+
+app.get("/add", function(req, res) {
+    res.sendFile(path.join(__dirname, "add.html"));
+});
+
+//route to display all characters
+app.get("/api/characters", function (req, res){
+    return res.json(characters);
+});
+
+//displays specific character or returns false
+app.get("api/characters/:character", function(req, res) {
+    var chosen = req.params.character;
+
+    console.log(chosen);
+
+    for(var i = 0; i < characters.length; i++){
+        if(chosen === characters[i].routeName) {
+            return res.json(characters[i]);
+        }
+    }
+});
